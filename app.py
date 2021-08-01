@@ -1,14 +1,43 @@
 from flask import Flask, render_template
+from datetime import datetime
 
 app = Flask(__name__)
 
 @app.route("/")
 def feed():
 
-    test_posts = [
-        "I can't wait to go to the park today",
-        "I could really use a treat right now",
-        "Arent' naps the best?"
-    ]
+
+    post1 = {
+        "Text": "I can't wait to go to the park today",
+        "Name": "Melba",
+        "Username" : "melba",
+        "LikeCount": 10,
+        "CommentCount" : 4,
+        "DateTime" : datetime(2021, 7, 1, 17, 0, 0),
+        "Picture" : "melba_profile.png"
+    }
+
+    post2 = {
+        "Text": "I could really use a treat right now",
+        "Name": "Melba",
+        "Username" : "melba",
+        "LikeCount": 5,
+        "CommentCount" : 1,
+        "DateTime" : datetime(2021, 6, 30, 12, 30, 0),
+        "Picture" : "melba_profile.png"
+    }
+
+    post3 = {
+        "Text": "Arent' naps the best?",
+        "Name": "Charlie",
+        "Username" : "chucky",
+        "LikeCount": 3,
+        "CommentCount" : 0,
+        "DateTime" : datetime(2021, 6, 29, 9, 0, 0),
+        "Picture" : "charlie_profile.png"
+    }
+
+
+    test_posts = [post1, post2, post3]
 
     return render_template('index.html', posts=test_posts)
