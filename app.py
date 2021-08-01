@@ -6,7 +6,6 @@ app = Flask(__name__)
 @app.route("/")
 def feed():
 
-
     post1 = {
         "Text": "I can't wait to go to the park today",
         "Name": "Melba",
@@ -40,4 +39,9 @@ def feed():
 
     test_posts = [post1, post2, post3]
 
-    return render_template('index.html', posts=test_posts)
+    return render_template('feed.html', posts=test_posts, title="My Feed")
+
+
+@app.route("/comments")
+def comments():
+    return render_template('comments.html', title="Comments")

@@ -1,0 +1,78 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+
+<div class="box">
+    <article class="media">
+        <div class="media-left">
+            <figure class="image is-64x64">
+                <img src="{{url_for('static', filename='melba_profile.png')}}" alt="Image">
+            </figure>
+        </div>
+        <div class="media-content">
+            <div class="content">
+                <p>
+                    <strong>Melba</strong> <small>@melba</small>
+                    <br>
+                </p>
+                <form>
+                    <div class="field">
+                        <div class="control">
+                            <textarea class="textarea" placeholder="New Message" rows=2></textarea>
+                        </div>
+                    </div>
+
+                    <div class="field is-grouped">
+                        <div class="control">
+                            <button class="button is-link">Submit</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </article>
+</div>
+
+{% for post in posts %}
+    <div class="box">
+        <article class="media">
+            <div class="media-left">
+                <figure class="image is-64x64">
+                    <img src="{{url_for('static', filename=post['Picture'])}}" alt="Image">
+                </figure>
+            </div>
+            <div class="media-content">
+                <div class="content">
+                    <p>
+                        <strong>{{post['Name']}}</strong> <small>@{{post['Username']}}</small> <small>{{post['DateTime']}}</small>
+                        <br>
+                        {{post['Text']}}
+                    </p>
+                </div>
+                <nav class="level is-mobile">
+                    <div class="level-left">
+                        <a class="level-item" aria-label="like">
+                            <span class="icon-text">
+                                <span class="icon is-small">
+                                    <i class="fas fa-heart"></i>
+                                </span>
+                                <span>{{post['LikeCount']}}</span>
+                            </span>
+                        </a>
+                        <a class="level-item" aria-label="like">
+                            <span class="icon-text">
+                                <span class="icon is-small">
+                                    <i class="fas fa-comment"></i>
+                                </span>
+                                <span>{{post['CommentCount']}}</span>
+                            </span>
+                        </a>
+                    </div>
+                </nav>
+            </div>
+        </article>
+    </div>
+{% endfor %}
+
+{% endblock %}
