@@ -34,7 +34,7 @@
     </article>
 </div>
 
-{% for post in posts %}
+{% for post in posts.values() %}
     <div class="box">
         <article class="media">
             <div class="media-left">
@@ -60,7 +60,7 @@
                                 <span>{{post['Likes'] | count}}</span>
                             </span>
                         </a>
-                        <a class="level-item" aria-label="like">
+                        <a class="level-item" aria-label="like" href="{{url_for('comments', post_id=post['PostId'])}}">
                             <span class="icon-text">
                                 <span class="icon is-small">
                                     <i class="fas fa-comment"></i>

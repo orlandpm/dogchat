@@ -9,6 +9,7 @@ def feed():
     return render_template('feed.html', posts=test_posts, title="My Feed")
 
 
-@app.route("/comments")
-def comments():
-    return render_template('comments.html', title="Comments", post=post1)
+@app.route("/comments/<int:post_id>")
+def comments(post_id):
+    post = test_posts[post_id]
+    return render_template('comments.html', title="Comments", post=post)
