@@ -57,7 +57,7 @@
                                 <span class="icon is-small">
                                     <i class="fas fa-heart"></i>
                                 </span>
-                                <span>{{post['LikeCount']}}</span>
+                                <span>{{post['Likes'] | count}}</span>
                             </span>
                         </a>
                         <a class="level-item" aria-label="like">
@@ -65,7 +65,7 @@
                                 <span class="icon is-small">
                                     <i class="fas fa-comment"></i>
                                 </span>
-                                <span>{{post['CommentCount']}}</span>
+                                <span>{{post['Comments'] | count }}</span>
                             </span>
                         </a>
                     </div>
